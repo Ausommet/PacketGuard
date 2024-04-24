@@ -55,8 +55,12 @@ def train_decision_tree_classifier(file_path):
     # Predict on the testing set
     y_pred = dt_classifier.predict(X_test)
 
-    # Print classification report
-    print(classification_report(y_test, y_pred))
+    # Inverse transform the encoded labels to get the actual labels
+    actual_labels = label_encoder.inverse_transform(y_test)
+    predicted_labels = label_encoder.inverse_transform(y_pred)
+
+    # Print classification report with actual labels
+    print(classification_report(actual_labels, predicted_labels))
 
     # Print accuracy score
     print("Accuracy:", accuracy_score(y_test, y_pred))
