@@ -1,5 +1,5 @@
 # PacketGuard
-#THIS NEEDS UPDATE!!!
+# THIS NEEDS UPDATE!!!
 Unlock insights from .pcap files. Packetguard a tool to process these files, generating .csv data for user-defined classification or utilizing built-in classifiers trained on the UNSW-NB15 dataset. Results are conveniently presentted in a readable .csv format for seamless analysis
 
 ## Table of Contents
