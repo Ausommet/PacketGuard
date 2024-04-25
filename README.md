@@ -1,6 +1,5 @@
 # PacketGuard
-# THIS NEEDS UPDATE!!!
-Unlock insights from .pcap files. Packetguard a tool to process these files, generating .csv data for user-defined classification or utilizing built-in classifiers trained on the UNSW-NB15 dataset. Results are conveniently presentted in a readable .csv format for seamless analysis
+Packetguard is a tool to process .pcap files, generating .csv data for user-defined classification or utilizing built-in classifiers trained on the UNSW-NB15 dataset. Results are conveniently presentted in a readable .csv format for seamless analysis
 
 ## Table of Contents
 
@@ -17,15 +16,15 @@ Unlock insights from .pcap files. Packetguard a tool to process these files, gen
 
 ## Introduction
 
-PacketGuard - a Python-powered solution for .pcap file analysis, offering an alternative to traditional methods like Wireshark. Designed to expedite the analysis of vast amounts of network traffic data, PacketGuard simplifies the process and also generates structured data from .pcap files for integration with classifiers and datasets. Reducing time-consuming analysis with Wireshark with effiient insights with PacketGuard.
+PacketGuard - Python-powered solution for .pcap file analysis, offering an alternative to traditional methods like Wireshark. Designed to expedite the analysis of vast amounts of network traffic data, PacketGuard simplifies the process and also generates structured data from .pcap files for integration with classifiers and datasets. Reducing time-consuming analysis with Wireshark with effiient insights with PacketGuard.
 
 ## Features
 
-1. **Efficient .pcap Analysis**: PacketGuard uses rdpcap for reading the of .pcap files, offering a faster and more efficient alternative to tools like Wireshark. However in the future there is plan to use a Generator as an even faster alternative to rdpcap.
+1. **Efficient .pcap Analysis**: PacketGuard uses rdpcap for reading the of .pcap files, offering a faster and more efficient alternative to tools like Wireshark. 
 
 2. **Data Generation**: Automatically generates structured data from .pcap files, enabling seamless integration with classifiers or datasets for further analysis.
 
-3. **Classifier Integration**: Built-in classifiers trained on datasets like UNSW-NB15 facilitate quick and accurate classification of network traffic data.
+3. **Classifier Integration**: Built-in classifiers trained on datasets like UNSW-NB15-training-set.csv facilitate quick and somewhat accurate classification of network traffic data.
 
 4. **Custom Classification**: Allows users to define their own classification tasks using the generated data, providing flexibility for specific analysis requirements.
 
@@ -35,28 +34,20 @@ PacketGuard - a Python-powered solution for .pcap file analysis, offering an alt
 
 7. **User-Friendly Interface**: Features an intuitive CLI interface that simplifies the process of analyzing and interpreting network traffic data, suitable for both novice and experienced users.
 
-8. **Scalability**: Capable of handling large volumes of .pcap files efficiently, ensuring consistent performance even with extensive datasets.
-
-9. **Documentation and Support**: Comprehensive documentation and support resources are provided to assist users in getting started with the tool and troubleshooting any issues.
-
-10. **Open Source**: PacketGuard is open-source, allowing for community contributions, customization, and ongoing development to meet evolving needs and requirements.
-
-These features highlight the functionality and benefits of PacketGuard, demonstrating its value proposition to users interested in analyzing .pcap files efficiently.
-
 ## Installation
 
 To get started with PacketGuard, simply follow these steps:
 1. Clone the repository to your local machine:
 ```
-git clone  TDB
+git clone https://github.com/Ausommet/PacketGuard.git
 ```
 2. Navigate to the project directory:
 ```
-cd TBD
+cd my_project_directory
 ```
 3. Install the required dependencies using pip:
 ```
-pip install -r requirements.txt (To Be Added at a later date)
+pip install -r requirements.txt
 ```
 Once the dependencies are installed, you're ready to use PacketGuard for analyzing .pcap files efficiently!
 
@@ -71,13 +62,16 @@ To utilize the Packet Classifier Application, follow these steps:
 3. Navigate to the directory containing the application files.
 4. Run the application using the following command:
 ```
-python <filename>.py -f <path_to_pcap_file> -m <model_choice> -t <training_data>
+python main.py -f <path_to_pcap_file> -m <model_choice> -t <training_data>
 ```
-Replace <filename>.py with the name of your Python script.
 
-Replace <path_to_pcap_file> with the path to the .pcap file you want to analyze.
-
-Replace <model_choice> with either "DTC" for Decision Tree Classifier or "RFC" for Random Forest Classifier.
+```
+options:
+  -h, --help    show this help message and exit
+  -f F          Path to the .pcap file
+  -m {DTC,RFC}  Choose the training model: DTC (Decision Tree Classifier) or RFC (Random Forest Classifier)
+  -t T          Choose the training model in .csv file format, you can provide your own or use the provided dataset.
+  ```
 
 5. Follow the prompts displayed in the terminal:
 Choose whether to save the generated results (y/n).
@@ -97,9 +91,12 @@ The data generation process in PacketGuard involves analyzing .pcap files and ex
 
 1. Packet Reading: Packet data is read from the .pcap file using the rdpcap function from the scapy library.
 
-2. Packet Information Extraction: Information is extracted from each packet, including duration, protocol, service, state, packet counts, bytes, rates, TTL (Time to Live), load, packet loss, packet size means, transmission depth, response body length, TCP sequence numbers, and various connection tracking parameters.
+2. Packet Information Extraction:
 
-3. Derived Metrics Calculation: Derived metrics such as inter-arrival times, TCP RTT (Round-Trip Time), SYN-ACK and ACK-DAT delays, mean packet sizes, connection tracking metrics, FTP-related metrics, HTTP flow methods, and others are calculated based on the extracted packet information.
+> duration, protocol, service, state, packet counts, bytes, rates, TTL (Time to Live), load, packet loss, packet size means, transmission depth, response body length, TCP sequence numbers, and various connection tracking parameters.
+
+3. Derived Metrics Calculation:
+> inter-arrival times, TCP RTT (Round-Trip Time), SYN-ACK and ACK-DAT delays, mean packet sizes, connection tracking metrics, FTP-related metrics, HTTP flow methods, and others are calculated based on the extracted packet information.
 
 4. Data Structure Initialization: Data structures and variables are initialized to store running averages, total packet sizes, packet counts, connection timestamps, and other relevant information.
 
@@ -166,7 +163,3 @@ Present the results obtained from using the models.
 ## Contributing (TBD)
 
 Guidelines for contributing to the project.
-
-## License (TBD)
-
-Information about the project's license.
