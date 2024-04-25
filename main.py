@@ -21,6 +21,7 @@ def main():
     if save_file == "y" or save_file =="n":
         packet_data = generate_packet_data(file_path, save_file)
         print("Packet data generated!")
+
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
 

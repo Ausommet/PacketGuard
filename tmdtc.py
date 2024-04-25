@@ -6,6 +6,7 @@ import pickle
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.model_selection import train_test_split
+import os
 
 def train_decision_tree_classifier(file_path):
 
@@ -46,6 +47,9 @@ def train_decision_tree_classifier(file_path):
     # Train the model
     dt_classifier.fit(X_train, y_train)
 
+    directory = 'Models'
+    if not os.path.exists(directory): # Create a directory to save the trained model
+        os.makedirs(directory)
     # Save the trained model as a pickle file
     joblib.dump(dt_classifier, 'Models/trained_model_DTC.pkl')
 

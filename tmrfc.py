@@ -4,6 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 import joblib
 import pickle
 import time
+import os
 
 def train_random_forest_classifier(file_path):
     
@@ -48,6 +49,9 @@ def train_random_forest_classifier(file_path):
     # Train the model
     rf_classifier.fit(X_train, y_train)
 
+    directory = 'Models'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     # Save the trained model as a pickle file
     joblib.dump(rf_classifier, 'Models/trained_model_RFC.pkl')
 

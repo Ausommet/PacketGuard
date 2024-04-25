@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 import joblib
+import os
 
 def predict(model_path, label_encoder_path, generated_data, savefile):
     # Load the model from the .pkl file
@@ -46,4 +47,7 @@ def predict(model_path, label_encoder_path, generated_data, savefile):
 
     # Save the results to a CSV file
     if savefile == "y":
+        directory = 'Results/Predictions'
+        if not os.path.exists(directory):
+            os.makedirs(directory)
         new_data.to_csv("Results/Predictions/predictions.csv", index=False)

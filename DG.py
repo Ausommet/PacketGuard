@@ -2,6 +2,7 @@ from scapy.all import IP, TCP, UDP, rdpcap, Raw, ICMP, Ether, ARP, deque
 from collections import defaultdict
 import socket
 from tqdm import tqdm
+import os
 
 # Initialize data structures and variables
 running_avg_sinpkt = 0
@@ -454,8 +455,8 @@ def generate_packet_data(filename, save_file):
         "ct_src_ltm",
         "ct_srv_dst",
         "is_sm_ips_ports"
-        #"attack_cat", Remove again to increase performance, will be added when classifying packets.
-        #"label", Remove again to increase performance, will be added when classifying packets.
+        #"attack_cat", Removed to increase performance, will be added when classifying packets anyways.
+        #"label", Removed to increase performance, will be added when classifying packets anyways.
         ]
     print("Reading packets from file... (Larger files may take longer)")
     packets = rdpcap(filename)
@@ -505,10 +506,13 @@ def generate_packet_data(filename, save_file):
 
     # Write the extracted information to a CSV file if save_file is '1'
     if save_file == 'y':
-        with open('Results/Generated Data/generated_data.csv', 'w') as f:
+        directory = 'Results/Generated Data/'
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        
+        with open(directory + 'generated_data.csv', 'w') as f:
             # Write the header
             f.write(",".join(keys) + "\n")
-
             for packet_info in packet_data:
                 row = ",".join(str(packet_info[key]) for key in keys)
                 f.write(row + "\n")
