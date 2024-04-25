@@ -65,6 +65,8 @@ Example Usage with the provided Test-Files
 ```
 python main.py -f .\Test-Files\test-pcap-file.pcap -m DTC -t .\Test-Files\UNSW_NB15_training-set.csv
 ```
+![Example-execution](https://github.com/Ausommet/PacketGuard/assets/48718483/8f4aadb2-c71b-4ae5-87a0-de0886d02133)
+
 ```
 options:
   -h, --help    show this help message and exit
