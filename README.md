@@ -8,11 +8,7 @@ Packetguard is a tool to process .pcap files, generating .csv data for user-defi
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Data Generation](#data-generation)
-6. [Packet Generation](#packet-generation)
 7. [Models](#models)
-8. [Results](#results)
-9. [Contributing](#contributing)
-10. [License](#license)
 
 ## Introduction
 
@@ -65,6 +61,10 @@ To utilize the Packet Classifier Application, follow these steps:
 python main.py -f <path_to_pcap_file> -m <model_choice> -t <training_data>
 ```
 
+Example Usage with the provided Test-Files
+```
+python main.py -f .\Test-Files\test-pcap-file.pcap -m DTC -t .\Test-Files\UNSW_NB15_training-set.csv
+```
 ```
 options:
   -h, --help    show this help message and exit
@@ -155,11 +155,3 @@ The Random Forest Classifier (RFC) is an ensemble learning method that construct
    - The time taken to train the model is measured and printed.
 
 These models provide a way to classify network packet data into different attack categories, allowing for the detection and analysis of network security threats.
-
-## Results (TBD)
-
-Present the results obtained from using the models.
-
-## Contributing (TBD)
-
-Guidelines for contributing to the project.
