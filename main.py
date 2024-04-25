@@ -36,18 +36,18 @@ def main():
 
     # After training, perform prediction
     if model_choice == "DTC":
-        start_time = time.time()
         savefile = input("Would you like to save the prediction results? (y/n): ").lower()
         if savefile == "y" or savefile == "n":
+            start_time = time.time()
             predict("Models/trained_model_DTC.pkl", "Models/label_encoder_DTC.pkl", packet_data, savefile)
         else:
             print("Invalid input. Please enter 'y' or 'n.")
         print("Prediction in progress...")
         print("Prediction completed!")
     elif model_choice == "RFC":
-        start_time = time.time()
         savefile = input("Would you like to save the prediction results? (y/n): ").lower()
         if savefile == "y" or savefile == "n":
+            start_time = time.time()
             predict("Models/trained_model_RFC.pkl", "Models/label_encoder_RFC.pkl", packet_data, savefile)
         else:
             print("Invalid input. Please enter 'y' or 'n.")
