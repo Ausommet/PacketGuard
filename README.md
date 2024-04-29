@@ -9,6 +9,7 @@ Packetguard is a tool to process .pcap files, generating .csv data for user-defi
 4. [Usage](#usage)
 5. [Data Generation](#data-generation)
 7. [Models](#models)
+8. [Future Work](#future-work)
 
 ## Introduction
 
@@ -157,3 +158,28 @@ The Random Forest Classifier (RFC) is an ensemble learning method that construct
    - The time taken to train the model is measured and printed.
 
 These models provide a way to classify network packet data into different attack categories, allowing for the detection and analysis of network security threats.
+
+## Future Work
+
+Moving forward, the primary objective for this project is to optimize the analysis of pcap files by implementing a Generator approach as opposed to utilizing rdpcap. This transition is anticipated to significantly enhance processing speed, owing to the inherent efficiency of Generators compared to the current method.
+
+Moreover, attention will be directed towards refining the pre-processing stage. The existing procedure, while functional, tends to excessively discard data, potentially eliminating valuable metrics essential for predictive analysis. To address this, a comprehensive review of the pre-processing steps will be undertaken, aiming to strike a balance between data refinement and preservation of pertinent predictive features.
+
+```
+# Preprocessing steps to remove rows with specified values
+    columns_to_check = ["proto", "service", "state", "spkts", "dpkts", 
+                        "sbytes", "dbytes", "swin", "dwin", "stcpb", "dtcpb"]
+
+    # Remove rows where any of the specified columns have value "-"
+    for column in columns_to_check:
+        new_data = new_data[new_data[column] != "-"]
+
+```
+
+Furthermore, emphasis will be placed on enhancing the classification capabilities of the project. Presently, the predictive aspect of the system requires further refinement to achieve robust data classification.
+
+These enhancements collectively aim to elevate the efficiency and efficacy of the project, culminating in a more sophisticated and capable analytical tool.
+
+
+
+Hello! If you've read this far, it would be greatly appreciated if you could support this project by giving it a star or watching it. 😊
