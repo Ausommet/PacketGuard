@@ -4,6 +4,7 @@ from tmrfc import train_random_forest_classifier
 from PM import predict
 from DG import generate_packet_data
 import time
+import os.path
 
 def main():
     parser = argparse.ArgumentParser(description="Packet Classifier Application")
@@ -16,9 +17,19 @@ def main():
     model_choice = args.m
     training_data = args.t
 
+    # Check if the file exists
+    if file_path and not os.path.exists(file_path):
+        print("Error: The specified path to the .pcap file does not exist.")
+        return
+    # Check if the training data file exists
+    if training_data and not os.path.exists(training_data):
+        print("Error: The specified training data file does not exist.")
+        return
+
     # Generate packet data from the .pcap file
     save_file = input("Would you like to save the Generated results? (y/n): ").lower()
     if save_file == "y" or save_file =="n":
+
         packet_data = generate_packet_data(file_path, save_file)
         print("Packet data generated!")
 
