@@ -17,6 +17,20 @@ def main():
     model_choice = args.m
     training_data = args.t
 
+    # Check if the file path is provided and has a .pcap extension
+    if file_path:
+        file_base, file_ext = os.path.splitext(file_path)
+        if file_ext != ".pcap":
+            print("Error: The specified file is not a .pcap file.")
+            return
+
+    # Check if the training data file is provided and has a .csv extension
+    if training_data:
+        training_base, training_ext = os.path.splitext(training_data)
+        if training_ext != ".csv":
+            print("Error: The specified training data file is not a .csv file.")
+            return
+
     # Check if the file exists
     if file_path and not os.path.exists(file_path):
         print("Error: The specified path to the .pcap file does not exist.")
