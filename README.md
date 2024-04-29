@@ -81,6 +81,16 @@ Choose whether to save the generated results (y/n).
 
 If applicable, choose whether to save the prediction results (y/n).
 
+#### Files are always saved in the following directory
+For the Generated Data
+```
+my_project_directory\Results\Generated Data
+```
+and for the Classification Predictions
+```
+my_project_directory\Results\Predictions
+```
+
 6. Wait for the application to process the data, train the selected model, and perform prediction.
 7. Once completed, the application will display the time taken for prediction and any saved results will be available in the specified location.
 
