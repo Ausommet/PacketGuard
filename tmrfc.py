@@ -38,7 +38,7 @@ def train_random_forest_classifier(file_path):
 
     # Split the dataset into training and testing sets
     from sklearn.model_selection import train_test_split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     # Choose a machine learning algorithm
     from sklearn.ensemble import RandomForestClassifier

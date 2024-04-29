@@ -39,7 +39,7 @@ def train_decision_tree_classifier(file_path):
     y = data["attack_cat_encoded"]
 
     # Split the dataset into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     # Initialize the Decision Tree classifier
     dt_classifier = DecisionTreeClassifier(random_state=42)
